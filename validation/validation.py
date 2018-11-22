@@ -6,14 +6,14 @@ class Validation():
 
     def valid_fields(self, fields_tuple):
         """Validates fields entered as arguments"""
-
         for field in fields_tuple:
             field = str(field)
             if not field in bamboo_fields:
                 print(field + ' is not a valid BambooHR field name')
                 return False
-                
+
         return True
+
 
     def fields_to_url(self, fields_tuple):
         """Converts fields tuple into string to be used in URL"""
