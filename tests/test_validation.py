@@ -8,13 +8,13 @@ class TestValidation(unittest.TestCase):
     validator = Validation()
 
     def test_valid_fields_returns_true(self):
-        field = 'firstName'
+        field = ('firstName', 'lastName')
         result = self.validator.valid_fields(field)
         self.assertTrue(result)
 
     
     def test_valid_fields_returns_false(self):
-        field = 'primaryName'
+        field = ('firstName', 'primaryName')
         result = self.validator.valid_fields(field)
         self.assertFalse(result)
 
