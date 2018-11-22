@@ -2,7 +2,10 @@ import requests
 import json
 from validation import Validation
 
+
 class BambooCaller():
+
+    validation = Validation()
 
 
     def __init__(self, api_key, organisation):
@@ -35,7 +38,10 @@ class BambooCaller():
     def request_specified_fields(self, employee_id, *args):
         """Returns a json structure for a specified employee ID and any field names entered """
 
-        url = "https://api.bamboohr.com/api/gateway.php/" + self.organisation + "/v1/employees/" + employee_id + "?fields=" + table_name
+        #check args entered are valid fields in bamboo
+        self.validation.valid_fields(args)
+
+        url = "https://api.bamboohr.com/api/gateway.php/" + self.organisation + "/v1/employees/" + employee_id + "?fields=" + self.validation.fields_to_url(args)
 
         headers = {
             "headers": {
