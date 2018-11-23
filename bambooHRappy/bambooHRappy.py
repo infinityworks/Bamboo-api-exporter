@@ -31,7 +31,7 @@ class bambooHrApi:
         """Returns a json datatype containing all rows for a specified employee ID and table combination"""
 
         # Check table name matches valid bamboo tables list
-        self.validation.valid_fields(table_name)
+        self.validation.valid_table(table_name)
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "/tables/" + str(table_name)
         response = requests.get(url, headers=self.headers, timeout=10)
