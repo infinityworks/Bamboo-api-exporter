@@ -1,8 +1,8 @@
-from validation.validation import Validation
+from validation import Validation
 import requests
 
 
-class bambooHrApi():
+class bambooHrApi:
 
 
     def __init__(self, api_key, organisation):

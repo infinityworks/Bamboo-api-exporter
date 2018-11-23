@@ -1,5 +1,5 @@
 import unittest
-from validation.validation import Validation
+from validation import Validation
 
 
 class TestValidation(unittest.TestCase):
