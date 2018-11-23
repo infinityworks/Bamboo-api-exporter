@@ -1,3 +1,10 @@
+bamboo_tables = ['jobInfo',
+                 'employmentStatus',
+                 'compensation',
+                 'dependents',
+                 'emergencyContacts',
+                 'contacts']
+
 bamboo_fields = ['address1',
                 'address2',
                 'age',

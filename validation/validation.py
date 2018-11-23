@@ -1,14 +1,22 @@
 import requests
-from validation.validate_fields import bamboo_fields
+from validation.validate_fields import bamboo_fields, bamboo_tables
 
 
 class Validation():
 
 
+    def valid_table(self, table):
+        """Returns false if table name does not appear in list of valid bamboo tables"""
+        if not table in bamboo_tables:
+            print(table + ' is not a valid BambooHR table name as of Nov 2018')
+            return False
+
+        return True
+
     def valid_fields(self, fields_tuple):
-        """Validates fields entered as arguments"""
+        """Returns false if field name does not appear in list of valid bamboo fields"""
         for field in fields_tuple:
-            field = str(field)
+            field = field
             if not field in bamboo_fields:
                 print(field + ' is not a valid BambooHR field name as of Nov 2018')
                 return False

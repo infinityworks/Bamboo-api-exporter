@@ -6,6 +6,17 @@ class TestValidation(unittest.TestCase):
 
     validator = Validation()
 
+    def test_valid_table_returns_true(self):
+        table = 'employmentStatus'
+        result = self.validator.valid_table(table)
+        self.assertTrue(result)
+
+
+    def test_valid_table_returns_false(self):
+        table = 'jobHistory'
+        result = self.validator.valid_table(table)
+        self.assertFalse(result)
+
 
     def test_valid_fields_returns_true(self):
         field = ('firstName', 'lastName')
