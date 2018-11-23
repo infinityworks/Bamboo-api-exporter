@@ -61,3 +61,4 @@ class bambooHrApi:
         response_json = self.validation.valid_response(response)
 
         return response_json
+

@@ -2,7 +2,7 @@ import requests
 from validate_fields import bamboo_fields, bamboo_tables
 
 
-class Validation():
+class Validation:
 
 
     def valid_table(self, table):
