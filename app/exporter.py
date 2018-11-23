@@ -31,7 +31,7 @@ class bambooHrApi():
     def get_table(self, employee_id, table_name):
         """Returns a json datatype containing all rows for a specified employee ID and table combination"""
 
-        # check args match bamboo valid fields list
+        # Check table name matches valid bamboo tables list
         self.validation.valid_fields(table_name)
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "/tables/" + str(table_name)
@@ -44,7 +44,7 @@ class bambooHrApi():
     def get_employee(self, employee_id, *args):
         """Returns a json datatype for a specified employee ID and any field names entered"""
 
-        #check args match bamboo valid fields list
+        # Check args match bamboo valid fields list
         self.validation.valid_fields(args)
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "?fields=" + self.validation.fields_to_url(args)
