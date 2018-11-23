@@ -1,6 +1,5 @@
 from validation.validation import Validation
 import requests
-import json
 
 
 class bambooHrApi():
