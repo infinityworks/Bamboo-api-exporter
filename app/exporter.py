@@ -33,12 +33,11 @@ class bambooHrApi():
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "/tables/" + str(table_name)
 
-        try:
-            response = requests.get(url, headers=self.headers, timeout=10)
-            response = json.loads(response.text)
-            return response
-        except Exception as error:
-            return error
+        response = requests.get(url, headers=self.headers, timeout=10)
+
+        response_json = self.validation.valid_response(response)
+
+        return response_json
 
 
     def get_employee(self, employee_id, *args):
@@ -49,12 +48,11 @@ class bambooHrApi():
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "?fields=" + self.validation.fields_to_url(args)
 
-        try:
-            response = requests.get(url, headers=self.headers, timeout=10)
-            response = json.loads(response.text)
-            return response
-        except Exception as error:
-            return error
+        response = requests.get(url, headers=self.headers, timeout=10)
+
+        response_json = self.validation.valid_response(response)
+
+        return response_json
 
 
 
@@ -64,9 +62,7 @@ class bambooHrApi():
         url = self.base_url + self.organisation + "/v1/reports/" + str(report_id) + "?format=JSON&fd=yes"
 
         response = requests.get(url, headers=self.headers, timeout=10)
-        if response.status_code == requests.codes.ok:
-            response = json.loads(response.text)
 
-            return response
-        else:
-            response.raise_for_status()
+        response_json = self.validation.valid_response(response)
+
+        return response_json
