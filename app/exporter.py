@@ -32,9 +32,7 @@ class bambooHrApi():
         """Returns a json datatype containing all rows for a specified employee ID and table combination"""
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "/tables/" + str(table_name)
-
         response = requests.get(url, headers=self.headers, timeout=10)
-
         response_json = self.validation.valid_response(response)
 
         return response_json
@@ -47,22 +45,17 @@ class bambooHrApi():
         self.validation.valid_fields(args)
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "?fields=" + self.validation.fields_to_url(args)
-
         response = requests.get(url, headers=self.headers, timeout=10)
-
         response_json = self.validation.valid_response(response)
 
         return response_json
-
 
 
     def custom_report(self, report_id):
         """Returns a json datatype using BambooHR customer report ID"""
 
         url = self.base_url + self.organisation + "/v1/reports/" + str(report_id) + "?format=JSON&fd=yes"
-
         response = requests.get(url, headers=self.headers, timeout=10)
-
         response_json = self.validation.valid_response(response)
 
         return response_json
