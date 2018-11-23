@@ -1,5 +1,4 @@
 *.pyc
 .idea
 .vscode
-bambooHRApi.log
-/bamboo-api-exporter-venv
+
