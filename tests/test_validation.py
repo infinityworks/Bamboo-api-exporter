@@ -1,6 +1,5 @@
 import unittest
 from validation.validation import Validation
-from validation.validate_fields import bamboo_fields
 
 
 class TestValidation(unittest.TestCase):
@@ -23,4 +22,4 @@ class TestValidation(unittest.TestCase):
     def test_fields_to_url_returns_string(self):
         fields = ('firstName', 'lastName')
         result = self.validator.fields_to_url(fields)
-        self.assertEquals(result, 'firstName,lastName')
+        self.assertEqual(result, 'firstName,lastName')

@@ -1,4 +1,4 @@
-from validate_fields import bamboo_fields
+from validation.validate_fields import bamboo_fields
 
 
 class Validation():
