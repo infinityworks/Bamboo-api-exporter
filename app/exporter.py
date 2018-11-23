@@ -27,7 +27,7 @@ class BambooHrApi():
             }
         }
 
-        response = requests.get(url, headers=headers['headers'])
+        response = requests.get(url, headers=headers['headers'], timeout=10)
         if response.status_code == requests.codes.ok:
             response = json.loads(response.text)
 
@@ -53,7 +53,7 @@ class BambooHrApi():
             }
         }
 
-        response = requests.get(url, headers=headers['headers'])
+        response = requests.get(url, headers=headers['headers'], timeout=10)
         if response.status_code == requests.codes.ok:
             response = json.loads(response.text)
 
@@ -76,7 +76,7 @@ class BambooHrApi():
             }
         }
 
-        response = requests.get(url, headers=headers['headers'])
+        response = requests.get(url, headers=headers['headers'], timeout=10)
         if response.status_code == requests.codes.ok:
             response = json.loads(response.text)
 
