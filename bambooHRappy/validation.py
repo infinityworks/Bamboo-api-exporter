@@ -1,5 +1,5 @@
 import requests
-from validate_fields import bamboo_fields, bamboo_tables
+from .validate_fields import bamboo_fields, bamboo_tables
 
 
 class Validation:
