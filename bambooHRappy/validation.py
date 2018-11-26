@@ -13,10 +13,10 @@ class Validation:
 
         return True
 
+
     def valid_fields(self, fields_tuple):
         """Returns false if field name does not appear in list of valid bamboo fields"""
         for field in fields_tuple:
-            field = field
             if not field in bamboo_fields:
                 print(field + ' is not a valid BambooHR field name as of Nov 2018')
                 return False
@@ -37,8 +37,8 @@ class Validation:
 
 
     def valid_response(self, api_response):
-        """Returns response JSON datatype is response status code is 200.
-           else returns status error"""
+        """Returns response JSON datatype if response status code is 200.
+           Else returns status code error"""
         if api_response.status_code == requests.codes.ok:
             response_json = api_response.json()
             return response_json
