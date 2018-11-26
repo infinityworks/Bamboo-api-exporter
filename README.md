@@ -13,8 +13,8 @@ This will authenticate yourself when calling the BambooHR API.
 You can now run the following:
 
 - To pull back a table of your choosing
-  `bamboo.get_table(employee_id, table_name)`
+  - `bamboo.get_table(employee_id, table_name)`
 - To get an employee's details
-  `bamboo.get_employee(employee_id, comma, seperated, data, you, want)
+  - `bamboo.get_employee(employee_id, comma, seperated, data, you, want)`
 - Get a custom report
-  `bamboo.custom_report(report_id)`
+  - `bamboo.custom_report(report_id)`
