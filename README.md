@@ -1,6 +1,8 @@
 # BambooHR-api-exporter
 Open source toolkit for exporting data via bambooHR's API
 
+### Installation
+`pip3 install git+https://github.com/infinityworks/Bamboo-api-exporter.git`
 
 ### How to use
 
