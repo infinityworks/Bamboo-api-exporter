@@ -4,6 +4,9 @@ Open source toolkit for exporting data via bambooHR's API
 ### Installation
 `pip3 install git+https://github.com/infinityworks/Bamboo-api-exporter.git`
 
+Add into the imports:
+`from bambooHRappy.bambooHRappy import bambooHrApi`
+
 ### How to use
 
 First, you need to initialise the module within your code.
