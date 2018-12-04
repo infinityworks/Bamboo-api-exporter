@@ -1,6 +1,8 @@
 from .validation import Validation
 import requests
+import logging
 
+logger = logging.getLogger()
 
 class bambooHrApi:
 
@@ -34,7 +36,14 @@ class bambooHrApi:
         self.validation.valid_table(table_name)
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "/tables/" + str(table_name)
-        response = requests.get(url, headers=self.headers, timeout=10)
+        try:
+            response = requests.get(url, headers=self.headers, timeout=10)
+        except Exception as error:
+            bamboo_error = 'BambooHR Get Table API call has failed - ' + str(error)
+            logger.critical(bamboo_error)
+            return bamboo_error
+
+
         response_json = self.validation.valid_response(response)
 
         return response_json
@@ -47,7 +56,13 @@ class bambooHrApi:
         self.validation.valid_fields(args)
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "?fields=" + self.validation.fields_to_url(args)
-        response = requests.get(url, headers=self.headers, timeout=10)
+        try:
+            response = requests.get(url, headers=self.headers, timeout=10)
+        except Exception as error:
+            bamboo_error = 'BambooHR Get Employee API call has failed - ' + str(error)
+            logger.critical(bamboo_error)
+            return bamboo_error
+
         response_json = self.validation.valid_response(response)
 
         return response_json
@@ -57,7 +72,13 @@ class bambooHrApi:
         """Returns a JSON datatype using BambooHR customer report ID"""
 
         url = self.base_url + self.organisation + "/v1/reports/" + str(report_id) + "?format=JSON&fd=yes"
-        response = requests.get(url, headers=self.headers, timeout=10)
+        try:
+            response = requests.get(url, headers=self.headers, timeout=10)
+        except Exception as error:
+            bamboo_error = 'BambooHR Get Custom Report API call has failed - ' + str(error)
+            logger.critical(bamboo_error)
+            return bamboo_error
+
         response_json = self.validation.valid_response(response)
 
         return response_json
