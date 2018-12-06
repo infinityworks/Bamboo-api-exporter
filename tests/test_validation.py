@@ -1,5 +1,5 @@
 import unittest
-from validation import Validation
+from bambooHRappy.validation import Validation
 
 
 class TestValidation(unittest.TestCase):
