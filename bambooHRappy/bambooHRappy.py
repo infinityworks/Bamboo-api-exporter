@@ -62,3 +62,20 @@ class bambooHrApi:
 
         return response_json
 
+    
+    def get_annual_leave(self, start_date, end_date, annual_leave_status):
+        """Returns a JSON datatype for all employees annual leave data"""
+
+        # Checks annual leave status is valid 
+        self.validation.valid_annual_leave_status(annual_leave_status)
+
+        url = self.base_url + self.organisation + "/v1/time_off/requests/?start=" + str(start_date) + "&end=" + str(end_date) + \
+        "&type=1&status=" + str(annual_leave_status) 
+        response = requests.get(url, headers=self.headers, timeout=10)
+        response_json = self.validation.valid_response(response)
+        
+        return response_json
+
+
+    
+
