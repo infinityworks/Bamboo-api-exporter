@@ -36,6 +36,16 @@ class Validation:
         return ''.join(fields)
 
 
+    def valid_annual_leave_status(self, status):
+        """Returns false is status is not a valid annual leave status"""
+        valid_status_list = ['approved', 'denied', 'superceded', 'requested', 'canceled']
+        if not status in valid_status_list:
+            print(status + ' is not a valid BambooHR field name as of Nov 2018')
+            return False
+
+        return True
+
+
     def valid_response(self, api_response):
         """Returns response JSON datatype if response status code is 200.
            Else returns status code error"""

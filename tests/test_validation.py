@@ -34,3 +34,15 @@ class TestValidation(unittest.TestCase):
         fields = ('firstName', 'lastName')
         result = self.validator.fields_to_url(fields)
         self.assertEqual(result, 'firstName,lastName')
+
+
+    def test_valid_annual_leave_status_returns_false_if_invalid(self):
+        status = 'upcoming'
+        result = self.validator.valid_annual_leave_status(status)
+        self.assertFalse(result)
+
+
+    def test_valid_annual_leave_status_returns_true_if_valid(self):
+        status = 'approved'
+        result = self.validator.valid_annual_leave_status(status)
+        self.assertTrue(result)
