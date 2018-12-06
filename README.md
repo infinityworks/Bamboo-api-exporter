@@ -23,3 +23,5 @@ You can now run the following:
   - `bamboo.get_employee(employee_id, comma, seperated, data, you, want)`
 - Get a custom report
   - `bamboo.custom_report(report_id)`
+- Get annual leave for employees
+  - `bamboo.get_annual_leave(start_date, end_date, annual_leave_status)`
