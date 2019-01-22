@@ -27,9 +27,9 @@ You can now run the following:
   - `bamboo.get_annual_leave(start_date, end_date, annual_leave_status)`
 
 An Example:
-`def __init__(self):
-        self.bamboo = bambooHrApi(os.environ.get('BAMBOO_API_TOKEN'), 'RocketCorp')
+`def __init__(self):`
+        `self.bamboo = bambooHrApi(os.environ.get('BAMBOO_API_TOKEN'), 'RocketCorp')`
 
- def pull_leave_data(self, start_date, end_date):
-     response = self.bamboo.get_whos_out(start_date, end_date)
-     print(response)`
+ `def pull_leave_data(self, start_date, end_date):`
+     `response = self.bamboo.get_whos_out(start_date, end_date)`
+     `print(response)`
