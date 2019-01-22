@@ -38,6 +38,15 @@ class bambooHrApi:
         response_json = self.validation.valid_response(response)
 
         return response_json
+    
+    def get_employee_directory(self):
+        """Returns a JSON datatype containing the employee directory"""
+
+        url = self.base_url + self.organisation + "/v1/employees/directory"
+        response = requests.get(url, headers=self.headers, timeout=10)
+        response_json = self.validation.valid_response(response)
+
+        return response_json
 
 
     def get_employee(self, employee_id, *args):
