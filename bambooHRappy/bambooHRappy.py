@@ -1,5 +1,6 @@
 from .validation import Validation
 import requests
+import json
 
 
 class bambooHrApi:
@@ -92,6 +93,23 @@ class bambooHrApi:
         response = requests.get(url, headers=self.headers, timeout=10)
         response_json = self.validation.valid_response(response)
         
+        return response_json
+    
+    def time_off_request(self, employee_id, approval_status, start_date, end_date, time_off_type_id, amount_of_days):
+        """Makes a time off request in the employees BambooHR account"""
+        payload = {
+            "status": approval_status,
+            "start": start_date,
+            "end": end_date,
+            "timeOffTypeId": time_off_type_id,
+            "amount": amount_of_days
+        }
+        payload = json.dumps(payload)
+
+        url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "/time_off/request/"
+        response = requests.put(url, headers=self.headers, timeout=10, data=payload)
+        response_json = self.validation.valid_response(response)
+
         return response_json
 
     
