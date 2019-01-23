@@ -54,4 +54,3 @@ class Validation:
             return response_json
         else:
             api_response.raise_for_status()
-            return False
