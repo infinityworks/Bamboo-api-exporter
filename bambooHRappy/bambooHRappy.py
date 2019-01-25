@@ -112,24 +112,7 @@ class bambooHrApi:
         return response
     
     def time_off_history(self, employee_id, xml_payload):
-        """Makes a time off request in the employees BambooHR account"""
-        payload = {
-            "date": date,
-            "eventType": event_type,
-            "timeOffRequestId": time_off_request_id,
-            "note": notes
-        }
-        
-        payload = {
-           "date": date,
-           "eventType": event_type,
-           "timeOffRequestId": time_off_request_id,
-           "note": notes
-        }   
-        
-        print(payload)
-        # payload = json.dumps(payload)
-
+        """Makes a time off history in the employees BambooHR account"""
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "/time_off/history/"
         response = requests.put(url, headers=self.headers, timeout=10, data=payload)
 
