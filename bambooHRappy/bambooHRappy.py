@@ -119,13 +119,21 @@ class bambooHrApi:
             "timeOffRequestId": time_off_request_id,
             "note": notes
         }
+        
+        payload = {
+           "date": date,
+           "eventType": event_type,
+           "timeOffRequestId": time_off_request_id,
+           "note": notes
+        }   
+        
+        print(payload)
         payload = json.dumps(payload)
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "/time_off/history/"
         response = requests.put(url, headers=self.headers, timeout=10, data=payload)
-        response_json = self.validation.valid_response(response)
 
-        return response_json
+        return response
 
     
 
