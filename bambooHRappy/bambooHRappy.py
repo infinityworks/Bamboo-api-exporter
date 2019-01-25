@@ -128,7 +128,7 @@ class bambooHrApi:
         }   
         
         print(payload)
-        payload = json.dumps(payload)
+        # payload = json.dumps(payload)
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "/time_off/history/"
         response = requests.put(url, headers=self.headers, timeout=10, data=payload)
