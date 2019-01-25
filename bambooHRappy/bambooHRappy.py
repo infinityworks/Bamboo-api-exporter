@@ -108,7 +108,6 @@ class bambooHrApi:
 
         url = self.base_url + self.organisation + "/v1/employees/" + str(employee_id) + "/time_off/request/"
         response = requests.put(url, headers=self.headers, timeout=10, data=payload)
-        response_json = self.validation.valid_response(response)
 
         return response_json
     
