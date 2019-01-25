@@ -111,7 +111,7 @@ class bambooHrApi:
 
         return response
     
-    def time_off_history(self, employee_id, date, time_off_request_id, event_type, notes):
+    def time_off_history(self, employee_id, xml_payload):
         """Makes a time off request in the employees BambooHR account"""
         payload = {
             "date": date,
